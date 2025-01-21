@@ -51,38 +51,40 @@ graph TD
   D -->|Unauthorized| F[Deny Entry]
   E --> G[Display Slot Availability on LCD]
 ```
+---
+
 ## 🛠️ Hardware Components
-ESP32-CAM Module 
+- ESP32-CAM Module  
+- Arduino Uno/Nano  
+- IR Sensors (x2)  
+- Servo Motor (SG90)  
+- 16x2 I2C LCD Display  
+- Jumper Wires & Breadboard  
 
-Arduino Uno/Nano
-
-IR Sensors (x2)
-
-Servo Motor (SG90)
-
-16x2 I2C LCD Display
-
-Jumper Wires & Breadboard
+---
 
 ## 💻 Software Requirements
-1. Python 3.8+ 🐍
+1. Python 3.8+ 🐍  
+2. Libraries: Flask, OpenCV, pytesseract, mysql-connector-python  
+3. Tesseract OCR  
+4. Arduino IDE  
+5. MySQL Server  
 
-2. Libraries: Flask, OpenCV, pytesseract, mysql-connector-python
+---
 
-3. Tesseract OCR 
+---
 
-4. Arduino IDE 
+## ⚙️ Installation & Setup
 
-5. MySQL Server
-
-⚙️ Installation & Setup
-  
-  Clone the Repository
-  git clone https://github.com/shahishnujr/Autonomous-smart-Parking-System.git
-  cd autonomous-smart-Parking-System
-
+### Clone the Repository
+```bash
+git clone https://github.com/your-username/autonomous-smart-parking-system.git
+cd autonomous-smart-parking-system
+```
 Python Environment Setup
+```bash
   python -m venv venv
+```
 
 Configure ESP32-CAM
 
@@ -92,20 +94,27 @@ Upload to ESP32-CAM via Arduino IDE.
 
 ## 🗃️ Database Configuration
 Create MySQL Database
+```bash
   CREATE DATABASE Authorised_Vehicles;
   USE Authorised_Vehicles;
   CREATE TABLE vehicleList (vehicle_number VARCHAR(15) PRIMARY KEY);
+```
 
-Add Authorized Plates
+## Add Authorized Plates
+```bash
   INSERT INTO vehicleList (vehicle_number) VALUES ('ABC123'), ('XYZ789');
+```
+
 
 ## 🚀 Usage
 Start Flask Server
+```bash
   python Base.py
+```
 
 Server runs at http://[your-ip]:5000.
 
-Run Arduino Controller
+## Run Arduino Controller
 Upload Smart_Parking_Code_1.ino to Arduino and connect hardware as per pin definitions.
 
 Test the System
